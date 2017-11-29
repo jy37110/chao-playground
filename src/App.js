@@ -1,21 +1,52 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { HashRouter, Route } from 'react-router-dom'
+//import createBrowserHistory from 'history/createBrowserHistory'
+import createHashHistory from 'history/createHashHistory'
+import NavigationBar from './Components/NavigationBar';
+import Home from './Pages/Home';
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    constructor(props){
+        super(props);
+        this.state = {
+            login:false,
+            currentUser:"",
+        }
+    }
+
+    // handleTest = () => {
+    //     alert(JSON.stringify(this.state));
+    // };
+
+    onUserStateChange = (userState, user) => {
+        this.setState({login:userState, currentUser:user});
+        //alert("userState: " + userState + "\nstate: " + this.state.login);
+    };
+
+
+    render() {
+        //const LoginPage = (props) => {return(<Login loginStateHandler={this.onUserStateChange.bind(this)}{...props}/>)};
+        return (
+            <div className="App">
+                {/*<Router history={createBrowserHistory()}>*/}
+              <HashRouter history={createHashHistory()}>
+                <div className="routerContainer" style={{width:"100%"}}>
+                  <NavigationBar userLoggedIn={this.state.login} currentUser={this.state.currentUser} loginStateHandler={this.onUserStateChange}/>
+                  <div>
+                    <Route exact path="/" component={Home}/>
+                      {/*<Route path="/about" component={About}/>*/}
+                  </div>
+                </div>
+              </HashRouter>
+
+              <div className="footer">
+                  {/*<button onClick={this.handleTest}>Test Button</button>*/}
+              </div>
+            </div>
+        );
+    }
 }
 
 export default App;

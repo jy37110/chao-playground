@@ -26,3 +26,37 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.superRoot {
+  position: relative;
+}
+#root {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1000;
+  color:white;
+  width: 100%;
+}
+
+.NavBarTop {
+  min-height:30px !important;
+}
+.navbar{
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.myNavTop.navbar-nav li a {
+  padding:0 10px;
+  line-height:30px;
+}
+.myNavBottom.navbar-nav li a {
+  padding:0 15px;
+  line-height:30px;
+}
+.myNavItemBottomOthers a {
+  padding:0 15px;
+  font-size:18px;
+  margin-top:15px;
+}
