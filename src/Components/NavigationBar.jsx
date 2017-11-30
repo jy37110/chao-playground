@@ -51,6 +51,9 @@ class NavigationBar extends Component{
                 <Navbar className="NavBarBottom" style={{height:60,marginBottom:0,backgroundColor:'white'}}>
                     <Navbar.Collapse>
                         <Nav className="myNavBottom" activeKey={this.state.activeKey} onSelect={this.navigate}>
+                            <NavItem className="myNavItemBottomOthers" eventKey={" "}>
+                                <span className="NavItemBottom">Chao's playground</span>
+                            </NavItem>
                             <NavItem className="myNavItemBottomImg" eventKey={" "}>
                                 <span style={{width:125,height:59,padding:0,margin:'0 auto',display:'block'}}>
                                     <img src={"http://via.placeholder.com/200x100"} style={{weight:'100%', height:'100%'}} alt="200X100"/>
