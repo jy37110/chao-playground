@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavItem, MenuItem, FormGroup, InputGroup, FormControl, DropdownButton, Button } from 'react-bootstrap';
+import { Nav, Navbar, NavItem} from 'react-bootstrap';
 
 class NavigationBar extends Component{
     constructor(props){
@@ -17,14 +17,10 @@ class NavigationBar extends Component{
         }
     };
 
-    handleTest = () => {
-        //alert("this.props.userloggedin: " + this.props.userLoggedIn + "\n this.props.user: " + JSON.stringify(this.props.currentUser));
-    };
-
-    handleLogout = () => {
-        this.props.loginStateHandler(false,"");
-        //window.location = "#/redirect/LogoutSuccess";
-    };
+    // handleLogout = () => {
+    //     this.props.loginStateHandler(false,"");
+    //     //window.location = "#/redirect/LogoutSuccess";
+    // };
 
     handleSearchClick = () => {
         console.log(this.state.searchKey);
@@ -55,48 +51,24 @@ class NavigationBar extends Component{
                                 <span style={{width:125,height:59,padding:0,margin:'0 auto',display:'block'}}>
                                     <img src={"http://via.placeholder.com/200x100"} style={{weight:'100%', height:'100%'}} alt="200X100"/>
                                 </span>
-                            </NavItem>
-                            <NavItem className="myNavItemBottomOthers" eventKey={1}>
-                                <span className="NavItemBottom">Link1</span>
-                            </NavItem>
-                            <NavItem className="myNavItemBottomOthers" eventKey={2}>
-                                <span className="NavItemBottom">Link2</span>
-                            </NavItem>
-                            <NavItem className="myNavItemBottomOthers" eventKey={"redirect/ResetPasswordSuccess"}>
-                                <span className="NavItemBottom" onClick={this.handleTest}>Test Link</span>
-                            </NavItem>
-                            <NavItem className="myNavItemBottomOthers" eventKey={4}>
-                                <span className="NavItemBottom">Link4</span>
-                            </NavItem>
+                        </NavItem>
+                            {this.props.navBarLeftItems.map((eachItem,i) => {
+                                return(
+                                    <NavItem className="myNavItemBottomOthers" eventKey={eachItem.eventKey} key={i}>
+                                        <span className="NavItemBottom">{eachItem.name}</span>
+                                    </NavItem>
+                                )
+                            })}
 
                         </Nav>
-                        <Nav pullRight className="myNavBottom">
-                            <FormGroup style={{width:300,marginTop:15}}>
-                                <InputGroup>
-                                    <DropdownButton
-                                        onSelect={eventKey => this.setState({searchKey:eventKey})}
-                                        componentClass={InputGroup.Button}
-                                        id="input-dropdown-addon"
-                                        title={this.state.searchKey}
-                                    >
-                                        <MenuItem eventKey="小学" >小学</MenuItem>
-                                        <MenuItem eventKey="初中" >初中</MenuItem>
-                                        <MenuItem eventKey="高中">高中</MenuItem>
-                                        <MenuItem eventKey="私立高中">私立高中</MenuItem>
-                                        <MenuItem eventKey="国立理工">国立理工</MenuItem>
-                                        <MenuItem eventKey="国立大学">国立大学</MenuItem>
-
-                                    </DropdownButton>
-
-                                    <FormControl type="text" placeholder="请输入搜索内容" />
-
-                                    <InputGroup.Button>
-                                        <Button onClick={this.handleSearchClick}>
-                                            <span className="glyphicon glyphicon-search" aria-hidden="true"/>
-                                        </Button>
-                                    </InputGroup.Button>
-                                </InputGroup>
-                            </FormGroup>
+                        <Nav pullRight className="myNavBottom" activeKey={this.state.activeKey} onSelect={this.navigate}>
+                            {this.props.navBarRightItems.map((eachItem,i) => {
+                                return(
+                                    <NavItem className="myNavItemBottomOthers" eventKey={eachItem.eventKey} key={i}>
+                                        <span className="NavItemBottom">{eachItem.name}</span>
+                                    </NavItem>
+                                )
+                            })}
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
