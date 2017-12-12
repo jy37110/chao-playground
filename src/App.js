@@ -28,30 +28,30 @@ class App extends Component {
 
     render() {
         //const LoginPage = (props) => {return(<Login loginStateHandler={this.onUserStateChange.bind(this)}{...props}/>)};
-        const NavBarLeftItems = [
-            {name:"Link1",eventKey:"1"},
-            {name:"Link2",eventKey:"2"},
-            {name:"Link3",eventKey:"3"},
-            {name:"Link4",eventKey:"4"},
-        ];
-        const NavBarRightItems = [
-            {name:"Link11",eventKey:"11"},
-            {name:"Link12",eventKey:"12"},
-            {name:"Link13",eventKey:"13"},
-            {name:"Link14",eventKey:"14"},
-        ];
+        // const NavBarLeftItems = [
+        //     {name:"Link1",eventKey:"1"},
+        //     {name:"Link2",eventKey:"2"},
+        //     {name:"Link3",eventKey:"3"},
+        //     {name:"Link4",eventKey:"4"},
+        // ];
+        // const NavBarRightItems = [
+        //     {name:"Link11",eventKey:"11"},
+        //     {name:"Link12",eventKey:"12"},
+        //     {name:"Link13",eventKey:"13"},
+        //     {name:"Link14",eventKey:"14"},
+        // ];
         return (
             <div className="App">
                 {/*<Router history={createBrowserHistory()}>*/}
               <HashRouter history={createHashHistory()}>
                 <div className="routerContainer" style={{width:"100%"}}>
-                  <NavigationBar
-                      userLoggedIn={this.state.login}
-                      currentUser={this.state.currentUser}
-                      loginStateHandler={this.onUserStateChange}
-                      navBarLeftItems={NavBarLeftItems}
-                      navBarRightItems={NavBarRightItems}
-                  />
+                  {/*<NavigationBar*/}
+                      {/*userLoggedIn={this.state.login}*/}
+                      {/*currentUser={this.state.currentUser}*/}
+                      {/*loginStateHandler={this.onUserStateChange}*/}
+                      {/*navBarLeftItems={NavBarLeftItems}*/}
+                      {/*navBarRightItems={NavBarRightItems}*/}
+                  {/*/>*/}
                   <div>
                     <Route exact path="/" component={Home}/>
                       {/*<Route path="/about" component={About}/>*/}

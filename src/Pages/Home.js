@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PhotoFrames from '../Components/PhotoFrames'
 
 
 class Home extends Component {
@@ -18,8 +19,8 @@ class Home extends Component {
     }
     render() {
         return (
-            <div className="HomePageContainer" style={{color:"white"}}>
-                content
+            <div className="HomePageContainer" style={{width:'100%'}}>
+                <PhotoFrames/>
             </div>
         );
     }
