@@ -3,7 +3,7 @@ import './App.css';
 import { HashRouter, Route } from 'react-router-dom'
 //import createBrowserHistory from 'history/createBrowserHistory'
 import createHashHistory from 'history/createHashHistory'
-import NavigationBar from './Components/NavigationBar';
+// import NavigationBar from './Components/NavigationBar';
 import Home from './Pages/Home';
 
 
